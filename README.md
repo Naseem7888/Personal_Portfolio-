@@ -4,7 +4,7 @@
 
 Live site (after Pages is enabled):
 
-- <https://naseem7888.github.io/Personal-Portfolio/>
+- <https://naseem7888.github.io/Personal_Portfolio-/>
 
 A modern, responsive, and feature-rich portfolio website showcasing professional skills, experience, and projects. Built with cutting-edge web technologies and best practices.
 
