@@ -22,11 +22,11 @@ const CONFIG = {
         SPEED: 100,
         DELAY: 1000,
         PHRASES: [
+            'Data Annotator | LLM Training',
             'Full Stack Python Developer',
-            'Django · FastAPI · Flask',
-            'React · Node.js',
-            'PostgreSQL · MongoDB',
-            'PyQt6 · OCR'
+            'Django · React · Node.js',
+            'AI Chatbot Developer',
+            'OCR & Automation Specialist'
         ]
     },
     
