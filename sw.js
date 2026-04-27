@@ -8,7 +8,7 @@ const APP_SHELL_ASSETS = [
   './css/style.css',
   './js/main.js',
   './IMG_20250404_143547.jpg',
-  './Naseem%20Akhtar%20CV%20.pdf'
+  './Naseem Akhtar .pdf'
 ];
 
 const OFFLINE_FALLBACK = './index.html';
@@ -20,7 +20,22 @@ const CACHEABLE_CROSS_ORIGINS = [
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(APP_CACHE).then((cache) => cache.addAll(APP_SHELL_ASSETS))
+    caches.open(APP_CACHE).then((cache) => {
+      // Cache each asset individually to handle missing files gracefully
+      return Promise.all(
+        APP_SHELL_ASSETS.map((asset) =>
+          fetch(asset)
+            .then((response) => {
+              if (response.ok) {
+                return cache.put(asset, response);
+              }
+            })
+            .catch(() => {
+              // Silently fail for missing assets - don't break the service worker
+            })
+        )
+      );
+    })
   );
   self.skipWaiting();
 });
